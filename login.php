@@ -1,6 +1,7 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
 error_reporting(-1);
+require_once 'engine/mysql.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
