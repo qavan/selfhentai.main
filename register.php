@@ -3,10 +3,44 @@ header('Content-type: text/html; charset=utf-8');
 error_reporting(-1);
 require_once 'engine/https.php';
 require_once 'engine/mysql.php';
+//var_dump($_POST);
+//header('Location :register.php?var=7');
 if (isset($_COOKIE['SESSION']) and !empty($_COOKIE['SESSION'])) {
-    if (!empty(db_session_check($db, $_COOKIE['SESSION']))) {
+    if (db_session_check($db, $_COOKIE['SESSION'])) {
         header('Location:index.php');
         die;
+    }
+}
+else {
+    $loginPattern = "/[a-zA-Z][a-zA-Z0-9]{4,32}/";
+    $passwordPattern = "/[a-zA-Z0-9]{7,32}/";
+    $emailPattern = "/[a-z0-9._%+-].*\@[a-z0-9.-].*\.[a-z]{2,4}/";
+    if (  isset($_POST['login'],$_POST['password'],$_POST['passwordRepeat'],$_POST['email'],$_POST['emailRepeat']) ) {
+        if ( $_POST['password']!=$_POST['passwordRepeat'] ) {
+            header('Location:register.php?errorState=0;');//Пароли не совпадают
+        }
+        elseif ( $_POST['email']!=$_POST['emailRepeat'] ) {
+            header('Location:register.php?errorState=1');//Почты не совпадают
+        }
+        elseif (!(bool) preg_match($loginPattern,$_POST['login'])) {
+            header('Location:register.php?errorState=2');//Недопустимый формат логина
+        }
+        elseif (!(bool) preg_match($passwordPattern,$_POST['password'])) {
+            header('Location:register.php?errorState=3');//Недопустимый формат пароля
+        }
+        elseif (!(bool) preg_match($emailPattern,$_POST['email']) and strlen($_POST['email'])<=254 ) {
+            header('Location:register.php?errorState=4');//Недопустимый формат почты
+        }
+        else {
+            db_register($db,$_POST['login'],$_POST['password'],$_POST['email']);
+            echo 'Успешная регистрация!';
+            die;
+        }
+    }
+    else {
+//        if (isset($_GET['errorState'])) {
+//            header('Location:register.php');
+//        }
     }
 }
 ?>
@@ -17,7 +51,7 @@ if (isset($_COOKIE['SESSION']) and !empty($_COOKIE['SESSION'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/icon2407.png" type="image/png">
     <link rel="stylesheet" href="/styles/reset.css" type="text/css">
-    <link rel="stylesheet" href="/styles/register.css?v=2" type="text/css">
+    <link rel="stylesheet" href="/styles/register.css?v=3" type="text/css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/register.js?v=2"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto|Roboto+Slab|Rubik&display=swap" rel="stylesheet">
@@ -26,7 +60,7 @@ if (isset($_COOKIE['SESSION']) and !empty($_COOKIE['SESSION'])) {
 <body class="backGround">
 <div class="gigaForm">
     <div class="middleForm">
-        <form action="" method="post">
+        <form action="register.php" method="post">
             <div class="microForm">
                 <div class="regText">Регистрация</div>
                 <p>
@@ -53,11 +87,30 @@ if (isset($_COOKIE['SESSION']) and !empty($_COOKIE['SESSION'])) {
                     <input type="email" name="emailRepeat" id="emailRepeat" placeholder="myemail@youremail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
                     <label class="emailRepeatLabel placeLabel" for="emailRepeat">*Введите электронную почту ещё раз</label>
                     <label class="emailRepeatLabel filledInput" for="emailRepeat">Повтор электронной почты:</label>
+                    <?php
+                    if (isset($_GET['errorState'])) {
+                        if ($_GET['errorState']==0) {
+                            $errStr = "Введенные пароли не совпадают!";
+                        }
+                        elseif ($_GET['errorState']==1) {
+                            $errStr = "Введенные почты не совпадают!";
+                        }
+                        elseif ($_GET['errorState']==2) {
+                            $errStr = "Недопустимый формат логина!";
+                        }
+                        elseif ($_GET['errorState']==3) {
+                            $errStr = "Недопустимый формат пароля!";
+                        }
+                        elseif ($_GET['errorState']==4) {
+                            $errStr = "Недопустимый формат почты!";
+                        };
+                        echo "<label class='errorLabel' for='emailRepeat'>$errStr</label>";
+                    };
+                    ?>
                 </p>
                 <button type="submit" class="register-button" >Зарегистрироваться</button>
             </div>
         </form>
-<!--        <div class="footer">Powered by qavan</div>-->
     </div>
 </div>
 </body>
