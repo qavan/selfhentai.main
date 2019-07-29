@@ -7,14 +7,17 @@ if (isset($_POST['login']) and isset($_POST['password'])) {
     if (strlen($_POST['login']) > 1 and strlen($_POST['password']) > 1) {
         $login = $_POST['login'];
         $password = $_POST['password'];
-        if (!empty(db_login_check($db, $login, $password))) {
-            $key = md5($login.$password.time());
+        if (db_login($db, $login, $password)) {
+            $key = md5($_SERVER['REMOTE_ADDR'])."$".md5($_SERVER['REMOTE_ADDR'].$login.time().$password);
             db_update_secret_key($db,$key,$login,$password);
-            setcookie('SESSION',$key);
+//            setcookie('SESSION',$key);
             header('Location: index.php');
         }
+        else {
+            header('Location: login.php?loginerror=1');
+        }
     }
-    unset($_POST['login'],$_POST['password']);
+//    unset($_POST['login'],$_POST['password']);
 }
 ?>
 <!DOCTYPE html>
@@ -33,18 +36,23 @@ if (isset($_POST['login']) and isset($_POST['password'])) {
 <body class="bg">
 <div class="gigaForm">
     <div class="middleForm">
-        <form action="" method="post">
+        <form action="login.php" method="post">
             <div class="microForm">
-                <div class="logText">Логин</div>
+                <div class="logText">Вход</div>
                 <p>
                     <input type="text" name="login" id="login" placeholder="Логин" class="b1"  pattern="[a-zA-Z]+[a-zA-Z0-9]{4,32}" required>
                     <label class="loginLabel placeLabel" for="login">*Введите логин</label>
                     <label class="loginLabel filledInput" for="login">Логин:</label>
                 </p>
                 <p>
-                    <input type="password" name="password" id="password" placeholder="Пароль" class="b1" pattern="[a-zA-Z0-9]{6,32}" required>
+                    <input type="password" name="password" id="password" placeholder="Пароль" class="b1" pattern="[a-zA-Z0-9]{5,32}" required>
                     <label class="passwordLabel placeLabel" for="password">*Введите пароль</label>
                     <label class="passwordLabel filledInput" for="password">Пароль:</label>
+                    <?php
+                    if (isset($_GET['loginerror'])) {
+                        echo '<label class="errorLabel" for="password">Неправильный логин/пароль!</label>';
+                    };
+                    ?>
                 </p>
                 <button type="submit" class="login-button">Войти</button>
             </div>

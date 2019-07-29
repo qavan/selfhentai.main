@@ -63,6 +63,15 @@ input:not(:placeholder-shown) ~ .filledInput {
 .passwordLabel  {
     top: 11.4ch;
 }
+.errorLabel {
+    width: auto;
+    position: absolute;
+    opacity: 1;
+    top: -38px;
+    left: 32px;
+    color: #f50005;
+    font-size: 17px;
+}
 .login-button {
     width: 247px;
     height: 35px;

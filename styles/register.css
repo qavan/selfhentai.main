@@ -18,6 +18,15 @@ label {
     opacity: 0;
     transition: all 0.25s ease-out;
 }
+.errorLabel {
+    width: auto;
+    position: absolute;
+    opacity: 1;
+    top: -38px;
+    left: 32px;
+    color: #f50005;
+    font-size: 17px;
+}
 input {
     width: 245px;
     height: 30px;
