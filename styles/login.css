@@ -25,7 +25,7 @@ label {
     width: 230px;
     color: #b20900;
     top:0;
-    left:5.8ch;
+    left:39px;
     font-family: 'Noto Sans', sans-serif;
     font-size: 12px;
     font-weight: bold;
@@ -58,10 +58,10 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 4.3ch;
+    top: 30px;
 }
 .passwordLabel  {
-    top: 11.4ch;
+    top: 76px;
 }
 .errorLabel {
     width: auto;

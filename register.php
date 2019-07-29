@@ -3,8 +3,6 @@ header('Content-type: text/html; charset=utf-8');
 error_reporting(-1);
 require_once 'engine/https.php';
 require_once 'engine/mysql.php';
-//var_dump($_POST);
-//header('Location :register.php?var=7');
 if (isset($_COOKIE['SESSION']) and !empty($_COOKIE['SESSION'])) {
     if (db_session_check($db, $_COOKIE['SESSION'])) {
         header('Location:index.php');

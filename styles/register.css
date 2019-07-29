@@ -7,10 +7,10 @@ html, body {
 }
 label {
     position: absolute;
-    width: 230px;
+    width: 250px;
     color: #b20900;
     top:0;
-    left:6ch;
+    left:38px;
     font-family: 'Noto Sans', sans-serif;
     font-size: 12px;
     font-weight: bold;
@@ -52,19 +52,19 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 4.3ch;
+    top: 30px;
 }
 .passwordLabel {
-    top: 11.5ch;
+    top: 76px;
 }
 .passwordRepeatLabel {
-    top: 18.6ch;
+    top: 123px;
 }
 .emailLabel {
-    top: 25.8ch;
+    top: 171px;
 }
 .emailRepeatLabel {
-    top: 33ch;
+    top: 218px;
 }
 .register-button {
     width: 247px;

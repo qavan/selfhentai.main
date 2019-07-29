@@ -17,7 +17,6 @@ if (isset($_POST['login']) and isset($_POST['password'])) {
             header('Location: login.php?loginerror=1');
         }
     }
-//    unset($_POST['login'],$_POST['password']);
 }
 ?>
 <!DOCTYPE html>
@@ -57,7 +56,6 @@ if (isset($_POST['login']) and isset($_POST['password'])) {
                 <button type="submit" class="login-button">Войти</button>
             </div>
         </form>
-<!--        <div class="footer">Powered by qavan</div>-->
     </div>
 </div>
 </body>

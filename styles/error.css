@@ -5,6 +5,10 @@ html, body {
     padding: 0;
     overflow: hidden;
 }
+img {
+    height: 80%;
+    width: 80%;
+}
 .gigaForm {
     width: 100%;
     height: 100%;
@@ -12,9 +16,10 @@ html, body {
     top: 0;
     left: 0;
 }
-.gifH {
+.errorGif {
     width: 320px;
     height: 320px;
+    align-content: center;
     position: absolute;
     top: 0;
     right: 0;
@@ -22,6 +27,13 @@ html, body {
     left: 0;
     margin: auto;
     text-align: center;
+}
+.errorLabel {
+    color: white;
+    font-size: 28px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    text-align: center;
+    margin-top: -60px;
 }
 .backGround {
     background: black none repeat scroll 0 0;
