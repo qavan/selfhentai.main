@@ -16,7 +16,7 @@ require_once '/home/a0254847/domains/selfhentai.ru/public_html/engine/https.php'
 <body class="backGround">
     <div class="gigaForm">
         <div class="errorGif">
-            <img src="/images/404.gif">
+            <img src="/images/404.gif" alt="error">
             <div class="errorLabel">Страница не найдена</div>
         </div>
     </div>

@@ -5,21 +5,6 @@ html, body {
     padding: 0;
     overflow: hidden;
 }
-.footer {
-    opacity: 0;
-    height: 17px;
-    margin-top: 12px;
-    text-align: center;
-    font-size: 15px;
-}
-.footer:hover {
-    opacity: 1;
-    height: 17px;
-    margin-top: 9px;
-    text-align: center;
-    font-size: 15px;
-    transition: all 0.3s ease-out;
-}
 label {
     position: absolute;
     width: 230px;

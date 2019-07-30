@@ -16,7 +16,7 @@ require_once '/home/a0254847/domains/selfhentai.ru/public_html/engine/https.php'
 <body class="backGround">
     <div class="gigaForm">
         <div class="errorGif">
-            <img src="/images/403.gif">
+            <img src="/images/403.gif" alt="error">
             <div class="errorLabel">Ошибка доступа</div>
         </div>
     </div>

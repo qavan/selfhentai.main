@@ -30,7 +30,7 @@ else {
 <body class="backGround">
 <div class="gigaForm">
     <div class="gifH">
-            <img src="/images/h.gif">
+            <img src="/images/h.gif" alt="h gif">
     </div>
 </div>
 </body>
