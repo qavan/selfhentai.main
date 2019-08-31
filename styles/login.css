@@ -5,15 +5,21 @@ html, body {
     padding: 0;
     overflow: hidden;
 }
+form {
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 label {
     position: absolute;
-    width: 230px;
-    color: #b20900;
+    width: 250px;
+    color: #dd2c00;
     top:0;
-    left:39px;
-    font-family: 'Noto Sans', sans-serif;
+    left:38px;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: bolder;
     text-align: left;
     opacity: 0;
     transition: all 0.25s ease-out;
@@ -21,18 +27,28 @@ label {
 input {
     width: 245px;
     height: 30px;
-    margin-bottom: 14px;
     text-align: center;
-    border: 0.1ch solid #4e5f83;
+    border: 0.1ch solid #000000;
     border-radius: 1px;
-    color: rgb(28, 35, 43);
+}
+.errorLabel {
+    width: 300px;
+    position: absolute;
+    align-content: center;
+    opacity: 1;
+    top: -38px;
+    left: 28px;
+    font-size: 17px;
+}
+.filledInput {
+    color: #00c853;
 }
 input::placeholder {
     font-size: 11px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 input:hover {
-    background-color: #E6FFFD;
+    background-color: #ddf5f3;
 }
 input:placeholder-shown + .placeLabel {
     opacity: 1;
@@ -43,10 +59,10 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 30px;
+    top: 34px;
 }
 .passwordLabel  {
-    top: 76px;
+    top: 82px;
 }
 .errorLabel {
     width: auto;
@@ -54,16 +70,19 @@ input:not(:placeholder-shown) ~ .filledInput {
     opacity: 1;
     top: -38px;
     left: 32px;
-    color: #f50005;
     font-size: 17px;
 }
 .login-button {
     width: 247px;
     height: 35px;
-    font-family: 'Rubik', sans-serif;
-    border: 0.1ch solid #4e5f83;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    border: 0.1ch solid #000000;
     border-radius: 1px;
-    background-color: #fcfbff;
+    background-color: #a6bdf0;
+}
+.login-button:hover {
+    background-color: #b0e3d2;
 }
 .gigaForm {
     width: 100%;
@@ -82,28 +101,20 @@ input:not(:placeholder-shown) ~ .filledInput {
     left: 0;
     margin: auto;
     text-align: center;
-    border-radius: 1px;
-    background: rgb(136, 150, 163) none repeat scroll 0 0;
-    box-shadow: 1px 1px 4px 1px #50545b;
+    background: #212121 none repeat scroll 0 0;
 }
 .microForm {
     position:relative;
     margin:15px 0 0 0;
 }
 .logText {
-    color: #25275c;
-    font-family: 'Roboto Slab', serif;
-    font-size: 30px;
+    color: #d50000;
+    font-family: 'Alegreya Sans 800', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
     text-align: center;
     margin-bottom: 12px;
 }
-form {
-    max-width: 320px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
 .bg {
-    background: rgb(200, 216, 230) none repeat scroll 0 0;
+    background: #484848 none repeat scroll 0 0;
 }

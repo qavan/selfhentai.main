@@ -1,7 +1,20 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+form {
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 label {
     position: absolute;
     width: 250px;
-    color: #e31800;
+    color: #dd2c00;
     top:0;
     left:38px;
     font-family: 'Ubuntu', sans-serif;
@@ -14,11 +27,9 @@ label {
 input {
     width: 245px;
     height: 30px;
-    margin-bottom: 14px;
     text-align: center;
-    border: 0.1ch solid #4e5f83;
+    border: 0.1ch solid #000000;
     border-radius: 1px;
-    color: rgb(28, 35, 43);
 }
 .errorLabel {
     width: 300px;
@@ -27,18 +38,17 @@ input {
     opacity: 1;
     top: -38px;
     left: 28px;
-    color: #ff0005;
     font-size: 17px;
 }
 .filledInput {
-    color: #19c90a;
+    color: #00c853;
 }
 input::placeholder {
     font-size: 11px;
     font-family: 'Ubuntu', sans-serif;
 }
 input:hover {
-    background-color: #e0f4fc;
+    background-color: #ddf5f3;
 }
 input:placeholder-shown + .placeLabel {
     opacity: 1;
@@ -49,31 +59,31 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 27px;
+    top: 34px;
 }
 .passwordLabel {
-    top: 74px;
+    top:83px;
 }
 .passwordRepeatLabel {
-    top: 121px;
+    top: 132px;
 }
 .emailLabel {
-    top: 168px;
+    top: 181px;
 }
 .emailRepeatLabel {
-    top: 216px;
+    top: 231px;
 }
 .register-button {
     width: 247px;
     height: 35px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
-    border: 0.1ch solid #4e5f83;
+    border: 0.1ch solid #000000;
     border-radius: 1px;
-    background-color: #fcfbff;
+    background-color: #a6bdf0;
 }
 .register-button:hover {
-    background-color: #e0f4fc;
+    background-color: #b0e3d2;
 }
 .gigaForm {
     width: 100%;
@@ -81,11 +91,11 @@ input:not(:placeholder-shown) ~ .filledInput {
     position: absolute;
     top: 0;
     left: 0;
-    transition: all .5s;
+    /*transition: all .5s;*/
 }
 .middleForm {
     width: 320px;
-    height: 355px;
+    height: 360px;
     position: absolute;
     top: 0;
     right: 0;
@@ -94,28 +104,14 @@ input:not(:placeholder-shown) ~ .filledInput {
     margin: auto;
     text-align: center;
     border-radius: 1px;
-    background: #161616 none repeat scroll 0 0;
-}
-.formBorder {
-    width: 320px;
-    height: 355px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
-}
-.formBorder:hover {
-
+    background: #212121 none repeat scroll 0 0;
 }
 .microForm {
     position:relative;
-    margin:15px 0 0 0;
+    margin: 10px 0 0 0;
 }
 .regText {
-    color: #1f4bad;
+    color: #00c853;
     font-family: 'Alegreya Sans 800', sans-serif;
     font-weight: bold;
     font-size: 28px;
@@ -123,19 +119,5 @@ input:not(:placeholder-shown) ~ .filledInput {
     margin-bottom: 12px;
 }
 .backGround {
-    background: rgb(0, 0, 0) none repeat scroll 0 0;
-}
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-form {
-    /*min-width: 320px;*/
-    /*min-height: 355px;*/
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    background: #484848 none repeat scroll 0 0;
 }

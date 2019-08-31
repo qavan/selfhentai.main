@@ -1,22 +1,18 @@
-$( document ).ready(function() {
-    if($(window).width()>=1280 && $(window).height()>=720)
-    {
-        $(".gigaForm").css("transform","scale(1.35)");
-    }
-    else {
-        $(".gigaForm").css("transform","scale(1)");
-    }
-});
-$(window).resize(function() {
-    if ( $(window).width() >= 480 && $(window).height()>=480 ) {
-        var a = 1 + 2/9*$(window).height()/1980+2/9*$(window).width()/1080;
-        $(".gigaForm").css("transform","scale("+a.toFixed(1)+")");
-    }
-    else if ( $(window).width() <= 320 && $(window).height()<=480 ) {
-        var a = 1 - 2/9*$(window).height()/1980-2/9*$(window).width()/1080;
-        $(".gigaForm").css("transform","scale("+a.toFixed(1)+")");
-    }
-    else {
-        $(".gigaForm").css("transform","scale(1)");
-    }
-});
+//
+//autosize of window
+$( document ).ready(function(){if($(window).width()>=1280 && $(window).height()>=720){$(".gigaForm").css("transform","scale(1.35)");}else{$(".gigaForm").css("transform","scale(1)");}});
+//window auto resize(404)
+$(window).resize(function(){if ( $(window).width()>=480&&$(window).height()>=480 ){$(".gigaForm").css("transform","scale("+(1 + 2/9*$(window).height()/1980+2/9*$(window).width()/1080).toFixed(1)+")");}else if ( $(window).width()<=320&&$(window).height()<=480 ){$(".gigaForm").css("transform","scale("+(1-2/9*$(window).height()/1980-2/9*$(window).width()/1080).toFixed(1)+")");}else{$(".gigaForm").css("transform","scale(1)");}});
+//register-button all form validator
+function check(){let button=$('.register-button');if((/^[a-zA-Z]+[a-zA-Z0-9]{4,32}/).test($("#login").val())&&(/^[a-zA-Z0-9]{6,32}/).test($("#password").val())&&(/^[a-zA-Z0-9]{6,32}/).test($("#passwordRepeat").val())&&(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/).test($("#email").val())&&(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/).test($("#emailRepeat").val())){button.removeAttr('disabled')}else{alert('Вы не заполнили поля!');button.attr('disabled','disabled')}}
+//login validator
+$(document).ready(function(){$("#login").on("input",function(e){let label=$('#first_warn_label');let button=$('.register-button');if((/^[a-zA-Z]+[a-zA-Z0-9]{4,32}/).test($(e.target).val())===!1){label.text('Введите допустимый логин!');label.css('color','#ffab00');button.attr('disabled','disabled')}else{label.text('Логин:');label.removeAttr('style');button.removeAttr('disabled')}});$("#first_warn_label").trigger("input")})
+//password validator
+$(document).ready(function(){$("#password").on("input",function(e){let label=$('#second_warn_label_0');let button=$('.register-button');if((/^[a-zA-Z0-9]{6,32}/).test($(e.target).val())===!1){label.text('Введите допустимый пароль!');label.css('color','#ffab00');button.attr('disabled','disabled')}else{label.text('Пароль:');label.removeAttr('style');button.removeAttr('disabled')}});$("#second_warn_label_0").trigger("input")})
+//passwordRepeat validator
+$(document).ready(function(){$("#passwordRepeat").on("input",function(e){let label=$('#second_warn_label_1');let button=$('.register-button');let pass=$('#password');if((/^[a-zA-Z0-9]{6,32}/).test($(e.target).val())===!1&&pass.val()===''){label.text('Введите допустимый пароль ещё раз!')} else{if($(e.target).val()!==pass.val()&&pass.val()!==''){label.text('Введённые пароли не совпадают!')} else{label.text('Повтор пароля:');label.removeAttr('style');button.removeAttr('disabled');return}}label.css('color','#ffab00');button.attr('disabled','disabled')});$("#second_warn_label_1").trigger("input")})
+//email validator
+$(document).ready(function(){$("#email").on("input",function(e){let label=$('#third_warn_label_0');let button=$('.register-button');if((/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/).test($(e.target).val())===!1){label.text('Введите допустимую электронную почту!');label.css('color','#ffab00');button.attr('disabled','disabled')}else{label.text('Электронная почта:');label.removeAttr('style');button.removeAttr('disabled')}});$("#third_warn_label_0").trigger("input")})
+//emailRepeat validator
+$(document).ready(function(){$("#emailRepeat").on("input",function(e){let label=$('#third_warn_label_1');let button=$('.register-button');let mail=$('#email');if((/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/).test($(e.target).val())===!1){label.text('Введите повторно допустимую почту!')} else{if($(e.target).val()!==mail.val()&&mail.val()!==''){label.text('Введённые почты не совпадают!')} else{label.text('Повтор электронной почты:');label.removeAttr('style');button.removeAttr('disabled');return}}label.css('color','#ffab00');button.attr('disabled','disabled')});$("#third_warn_label_1").trigger("input")})
+//
