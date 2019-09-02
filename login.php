@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     <div class="middleForm">
         <form action="login.php" method="post">
             <div class="microForm">
-                <img class="pic" src="images/sh.png" alt="">
+                <img class="pic" src="images/sh2.png" alt="">
                 <a href="register.php" class="goToRegister">ПОЛУЧИТЬ ДОСТУП К СЕРВИСУ</a>
                 <p>
                     <input type="text" name="login" id="login" placeholder="Логин" class="b1"  pattern="^[a-zA-Z]+[a-zA-Z0-9]{4,32}" required>
