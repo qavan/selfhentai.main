@@ -16,7 +16,7 @@ label {
     width: 250px;
     color: #dd2c00;
     top:0;
-    left:38px;
+    left:26px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     font-weight: bolder;
@@ -25,7 +25,7 @@ label {
     transition: all 0.25s ease-out;
 }
 input {
-    width: 245px;
+    width: 207px;
     height: 30px;
     text-align: center;
     border: 0.1ch solid #000000;
@@ -34,7 +34,7 @@ input {
 .errorLabel {
     width: 300px;
     position: absolute;
-    align-content: center;
+    text-align: center;
     opacity: 1;
     top: -38px;
     left: 28px;
@@ -59,10 +59,10 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 34px;
+    top: 122px;
 }
 .passwordLabel  {
-    top: 82px;
+    top: 171px;
 }
 .errorLabel {
     width: auto;
@@ -73,7 +73,7 @@ input:not(:placeholder-shown) ~ .filledInput {
     font-size: 17px;
 }
 .login-button {
-    width: 247px;
+    width: 209px;
     height: 35px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -92,8 +92,8 @@ input:not(:placeholder-shown) ~ .filledInput {
     left: 0;
 }
 .middleForm {
-    width: 320px;
-    height: 220px;
+    width: 260px;
+    height: 320px;
     position: absolute;
     top: 0;
     right: 0;
@@ -107,13 +107,28 @@ input:not(:placeholder-shown) ~ .filledInput {
     position:relative;
     margin:15px 0 0 0;
 }
-.logText {
-    color: #d50000;
-    font-family: 'Alegreya Sans 800', sans-serif;
-    font-weight: bold;
-    font-size: 28px;
+.pic {
+    height: 112px;
+    width: 280px;
+    margin-top: 4px;
+    margin-left: -10px;
+}
+.goToRegister {
+    position: absolute;
+    width: 260px;
     text-align: center;
-    margin-bottom: 12px;
+    font-size: 13px;
+    margin-top: 158px;
+    margin-left: -131px;
+}
+.goToRegister:link,.goToRegister:visited {
+    color: #18d400
+}
+.goToRegister:focus {
+    color: #d10600
+}
+.goToRegister:active {
+    color: #dadada
 }
 .bg {
     background: #484848 none repeat scroll 0 0;

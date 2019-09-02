@@ -4,27 +4,26 @@ error_reporting(-1);
 require_once 'engine/https.php';
 require_once 'engine/mysql.php';
 require_once 'engine/reCAPTCHA.php';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response']) && isset($_POST['login']) && isset($_POST['password']) ) {
     $check_result=ishuman($_POST['recaptcha_response']);
     if ($check_result===0) {
-        header('Location: login.php?error=0');
-    } else {
-        header('Location: login.php?error=-1');}} #reCAPTCHA v3 check
-else if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login']) && isset($_POST['password'])) {
-    if (strlen($_POST['login']) > 1 and strlen($_POST['password']) > 1) {
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-        if (db_login($db, $login, $password)) {
-            $key = md5($_SERVER['REMOTE_ADDR'])."$".md5($_SERVER['REMOTE_ADDR'].$login.time().$password);
-            db_update_secret_key($db,$key,$login,$password);
-            setcookie('SESSION',$key);
-            header('Location: index.php');
-        }
-        else {
-            header('Location: login.php?error=1');
+        if (strlen($_POST['login']) > 1 and strlen($_POST['password']) > 1) {
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+            if (db_login($db, $login, $password)) {
+                $key = md5($_SERVER['REMOTE_ADDR']) . "$" . md5($_SERVER['REMOTE_ADDR'] . $login . time() . $password);
+                db_update_secret_key($db, $key, $login, $password);
+                setcookie('SESSION', $key);
+                header('Location: index.php');
+            } else {
+                header('Location: login.php?error=1');
+            }
         }
     }
-} #authorization
+    else {
+        header('Location: login.php?error=-1');
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +36,7 @@ else if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login']) && iss
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto|Roboto+Slab|Rubik&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Alegreya+Sans:800&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeUY7QUAAAAANDvTK8peaGgh-mtMy_Q-2JfODb8"></script>
-    <script>grecaptcha.ready(function(){grecaptcha.execute('6LeUY7QUAAAAANDvTK8peaGgh-mtMy_Q-2JfODb8',{action: 'homepage'}).then(function(token){var recaptchaResponse=document.getElementById('recaptchaResponse');recaptchaResponse.value=token;});});</script>
+    <?php require_once 'engine/reCAPTCHA_site.php'; ?>
     <title>Вход</title>
 </head>
 <body class="bg">
@@ -47,7 +44,8 @@ else if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login']) && iss
     <div class="middleForm">
         <form action="login.php" method="post">
             <div class="microForm">
-                <div class="logText">Вход</div>
+                <img class="pic" src="images/sh.png" alt="">
+                <a href="register.php" class="goToRegister">ПОЛУЧИТЬ ДОСТУП К СЕРВИСУ</a>
                 <p>
                     <input type="text" name="login" id="login" placeholder="Логин" class="b1"  pattern="^[a-zA-Z]+[a-zA-Z0-9]{4,32}" required>
                     <label class="loginLabel placeLabel" for="login">*Введите логин</label>
@@ -58,9 +56,7 @@ else if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login']) && iss
                     <label class="passwordLabel placeLabel" for="password">*Введите пароль</label>
                     <label class="passwordLabel filledInput" for="password" id="second_warn_label">Пароль:</label>
                     <?php  if (isset($_GET['error'])) {
-                            if ($_GET['error']==='0')
-                                {echo '<label class="errorLabel" for="password" style="color:#24c93c;left:90px;">Успешный вход!</label>';}
-                            else if ($_GET['error']==='1')
+                            if ($_GET['error']==='1')
                                 {echo '<label class="errorLabel" for="password">Неправильный логин/пароль!</label>';}
                             else if ($_GET['error']==='-1')
                                 {echo '<label class="errorLabel" for="password" style="left:33px;">Your reCAPTCHA check failed!</label>';}} #error labels
