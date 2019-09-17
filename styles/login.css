@@ -113,23 +113,35 @@ input:not(:placeholder-shown) ~ .filledInput {
     margin-top: 4px;
     margin-left: -2px;
 }
-.goToRegister {
-    position: absolute;
-    width: 260px;
-    text-align: center;
-    font-size: 13px;
-    margin-top: 201px;
-    margin-left: -268px;
-}
-.goToRegister:link,.goToRegister:visited {
-    color: #18d400
-}
-.goToRegister:focus {
-    color: #d10600
-}
-.goToRegister:active {
-    color: #dadada
-}
 .bg {
     background: #484848 none repeat scroll 0 0;
+}
+.grecaptcha-badge,#recaptchaResponse {
+    display: none;
+}
+.codeStyle {
+    width: 260px;
+    font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+.goToSomething {
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin: -15px 0 4px 30px;
+    color: #cecece;
+}
+.captchaProtect {
+    color: #cecece;
+    margin: 7px 0 0 30px;
+}
+.symbol {
+    display: inline-block;
+    transition: all .5s ease-out;
+}
+a:hover {
+    text-decoration: #00d6d6 underline;
 }

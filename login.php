@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/16.jpg" type="image/jpg">
     <link rel="stylesheet" href="/styles/reset.scss" type="text/css">
-    <link rel="stylesheet" href="/styles/login.css?v=3" type="text/css">
+    <link rel="stylesheet" href="/styles/login.css?v=5" type="text/css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto|Roboto+Slab|Rubik&display=swap" rel="stylesheet">
@@ -45,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
         <form action="login.php" method="post">
             <div class="microForm">
                 <img class="pic" src="images/sh2.png" alt="">
-                <a href="register.php" class="goToRegister">ПОЛУЧИТЬ ДОСТУП К СЕРВИСУ</a>
                 <p>
                     <input type="text" name="login" id="login" placeholder="Логин" class="b1"  pattern="^[a-zA-Z]+[a-zA-Z0-9]{4,32}" required>
                     <label class="loginLabel placeLabel" for="login">*Введите логин</label>
@@ -62,8 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                                 {echo '<label class="errorLabel" for="password" style="left:33px;">Your reCAPTCHA check failed!</label>';}} #error labels
                     ?>
                 </p>
-                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse" >
+                <div class="goToSomething codeStyle">доступ:
+                    <a href="register.php" class="a1">получить</a>&#8204;
+                    <div class="symbol"">&#9778;</div>
+                    <a href="recovery.php" class="a2">восстановить</a>
+                </div>
                 <button type="submit" class="login-button" onclick="check()">Войти</button>
+                <div class="captchaProtect codeStyle"> Protected by Google ReCaptcha v3</div>
             </div>
         </form>
     </div>

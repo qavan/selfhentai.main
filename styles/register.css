@@ -32,13 +32,14 @@ input {
     border-radius: 1px;
 }
 .errorLabel {
-    width: 300px;
-    position: absolute;
-    align-content: center;
-    opacity: 1;
-    top: -38px;
-    left: 28px;
-    font-size: 17px;
+    display:none;
+    /*width: 300px;*/
+    /*position: absolute;*/
+    /*align-content: center;*/
+    /*opacity: 1;*/
+    /*top: -38px;*/
+    /*left: 28px;*/
+    /*font-size: 17px;*/
 }
 .filledInput {
     color: #00c853;
@@ -59,19 +60,19 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 34px;
+    top: 44px;
 }
 .passwordLabel {
-    top:83px;
+    top:93px;
 }
 .passwordRepeatLabel {
-    top: 132px;
+    top: 142px;
 }
 .emailLabel {
-    top: 181px;
+    top: 191px;
 }
 .emailRepeatLabel {
-    top: 231px;
+    top: 241px;
 }
 .register-button {
     width: 247px;
@@ -80,6 +81,7 @@ input:not(:placeholder-shown) ~ .filledInput {
     font-size: 16px;
     border: 0.1ch solid #000000;
     border-radius: 1px;
+    margin: 0 0 0 0;
     background-color: #a6bdf0;
 }
 .register-button:hover {
@@ -95,7 +97,7 @@ input:not(:placeholder-shown) ~ .filledInput {
 }
 .middleForm {
     width: 320px;
-    height: 360px;
+    height: 372px;
     position: absolute;
     top: 0;
     right: 0;
@@ -108,7 +110,7 @@ input:not(:placeholder-shown) ~ .filledInput {
 }
 .microForm {
     position:relative;
-    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
 }
 .regText {
     color: #00c853;
@@ -118,6 +120,26 @@ input:not(:placeholder-shown) ~ .filledInput {
     text-align: center;
     margin-bottom: 12px;
 }
-.backGround {
+.bg {
     background: #484848 none repeat scroll 0 0;
+}
+.grecaptcha-badge,#recaptchaResponse  {
+    display: none;
+}
+.codeStyle {
+    width: 244px;
+    font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+.goToRulesBlock {
+    display: block;
+    color: #cecece;
+    margin: -10px 0 6px 38px;
+    letter-spacing: 1.4px;
+}
+.captchaProtect {
+    color: #cecece;
+    margin: 6px 0 0 38px;
 }
