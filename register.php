@@ -79,7 +79,7 @@ if (isset($_GET['success']) && $_GET['success']==1) {
         <div class="middleForm">
             <form action="register.php" method="post">
                 <div class="microForm">
-                    <div class="regText">Регистрация</div>
+                    <div class="regText">GET ACCESS BY CODE</div>
                     <p>
                         <input type="text" name="login" id="login" placeholder="Логин длиною от 5 до 32 букв и цифр" pattern="[a-zA-Z]+[a-zA-Z0-9]{4,32}" required>
                         <label class="loginLabel placeLabel" for="login">*Введите логин</label>
@@ -107,8 +107,8 @@ if (isset($_GET['success']) && $_GET['success']==1) {
                     </p>
                     <p>
                         <input type="email" name="regKey" id="emailRepeat" placeholder="insert here your key" pattern="???" required>
-                        <label class="regKey placeLabel" for="regKey" style="color:#00a379;">*Введите ваш ключ регистрации</label>
-                        <label class="regKey filledInput" for="regKey" id="main_warn_label_1" style="color:#00a379;">Ключ регистрации:</label>
+                        <label class="regKey placeLabel" for="regKey" style="color:#1345b8;">*Введите ваш ключ регистрации</label>
+                        <label class="regKey filledInput" for="regKey" id="main_warn_label_1" style="color:#1345b8;">Ключ регистрации:</label>
                     </p>
                         <?php
                         if (isset($_GET['errorState'])) {

@@ -14,9 +14,9 @@ form {
 label {
     position: absolute;
     width: 250px;
-    color: #dd2c00;
+    color: #d70000;
     top:0;
-    left:38px;
+    left:25px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     font-weight: bolder;
@@ -25,27 +25,21 @@ label {
     transition: all 0.25s ease-out;
 }
 input {
-    width: 245px;
+    width: 272px;
     height: 30px;
     text-align: center;
     border: 0.1ch solid #000000;
     border-radius: 1px;
+    margin-top: -2px;
 }
 .errorLabel {
     display:none;
-    /*width: 300px;*/
-    /*position: absolute;*/
-    /*align-content: center;*/
-    /*opacity: 1;*/
-    /*top: -38px;*/
-    /*left: 28px;*/
-    /*font-size: 17px;*/
 }
 .filledInput {
-    color: #00c853;
+    color: #2ed72e;
 }
 input::placeholder {
-    font-size: 11px;
+    font-size: 12px;
     font-family: 'Ubuntu', sans-serif;
 }
 input:hover {
@@ -60,22 +54,25 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 44px;
+    top: 42px;
 }
 .passwordLabel {
-    top:93px;
+    top:89px;
 }
 .passwordRepeatLabel {
-    top: 142px;
+    top: 136px;
 }
 .emailLabel {
-    top: 191px;
+    top: 184px;
 }
 .emailRepeatLabel {
-    top: 241px;
+    top: 231.5px;
+}
+.regKey {
+    top: 279px;
 }
 .register-button {
-    width: 247px;
+    width: 274px;
     height: 35px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -97,7 +94,7 @@ input:not(:placeholder-shown) ~ .filledInput {
 }
 .middleForm {
     width: 320px;
-    height: 372px;
+    height: 404px;
     position: absolute;
     top: 0;
     right: 0;
@@ -106,40 +103,43 @@ input:not(:placeholder-shown) ~ .filledInput {
     margin: auto;
     text-align: center;
     border-radius: 1px;
-    background: #212121 none repeat scroll 0 0;
+    background: #030303 none repeat scroll 0 0;
 }
 .microForm {
     position:relative;
     padding: 10px 0 0 0;
 }
 .regText {
-    color: #00c853;
+    color: #00D400;
     font-family: 'Alegreya Sans 800', sans-serif;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 .bg {
-    background: #484848 none repeat scroll 0 0;
+    background: #6e6e6e none repeat scroll 0 0;
 }
 .grecaptcha-badge,#recaptchaResponse  {
-    display: none;
+    visibility: hidden;
 }
 .codeStyle {
-    width: 244px;
     font-size: 10px;
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
     vertical-align: middle;
 }
 .goToRulesBlock {
-    display: block;
+    width: 270px;
     color: #cecece;
-    margin: -10px 0 6px 38px;
-    letter-spacing: 1.4px;
+    display: block;
+    margin: -13px 0 5px 25px;
+    letter-spacing: 2px;
 }
 .captchaProtect {
+    width: 320px;
     color: #cecece;
-    margin: 6px 0 0 38px;
+    font-size: 8px;
+    letter-spacing: -0.35px;
+    margin: 8px 0 0 0;
 }
