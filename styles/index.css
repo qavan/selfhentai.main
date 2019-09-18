@@ -12,17 +12,116 @@ html, body {
     top: 0;
     left: 0;
 }
-.gifH {
+.codeStyle {
+    width: 260px;
+    font-size: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+.container {
     width: 320px;
-    height: 320px;
+    height: 300px;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     margin: auto;
-    text-align: center;
+    background: transparent none repeat scroll 0 0;
+    /*background: #030303 none repeat scroll 0 0;*/
 }
-.backGround {
-    background: black none repeat scroll 0 0;
+.goToLogin {
+    margin: 20px 20px 10px 20px;
+    width: 280px;
+    height: 120px;
+}
+.goToRegister {
+    margin: 10px 20px 10px 20px;
+    width: 280px;
+    height: 120px;
+}
+.goToLogin,.goToRegister {
+    display:inline-block;
+    text-align: center;
+    background-color: #b8b8b8;
+    transition: all .4s ease-out;
+}
+@keyframes bgc{
+    0% { background-color:#b8b8b8; }
+    100% { background-color: rgba(46, 215, 46, 0.4) ;}
+    /*100% { background-color:#b8b8b8; }*/
+}
+.goToLogin:hover,.goToRegister:hover{
+    animation: 0.5s bgc;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-direction: normal;
+    /*background-color: #848484;*/
+}
+img {
+    display: block;
+    width: 96px;
+    height: 96px;
+    background-color: transparent;
+    transition: all .35s ease;
+}
+img.L {
+    margin-top: 12px;
+    margin-right: auto;
+    margin-left: Calc(100% - 195px);
+}
+img.R {
+    margin-top: 4px;
+    margin-right: auto;
+    margin-left: Calc(100% - 188px);
+}
+img.L.tiny {
+    margin-left: 14px;
+    transform: scale(1.15);
+}
+img.R.tiny {
+    margin-left: 17px;
+    transform: scale(1.15);
+}
+@keyframes jump{
+    33% { opacity: 0; }
+    66% { opacity: 0.4; }
+    100% { opacity: 1;  }
+}
+.text {
+    display:block;
+    margin-top:-65px;
+    font-family: 'Ubuntu',sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    opacity: 0;
+    animation: jump .4s;
+}
+.textL {
+    margin-left:110px;
+}
+.textR {
+    margin-left:115px;
+    margin-top: -60px;
+}
+.goToLogin:hover .textL{
+    opacity: 1;
+}
+.goToRegister:hover .textR{
+    opacity: 1;
+}
+.flaticon {
+    width: 290px;
+    right: 3px;
+    bottom: 5px;
+    font-size: 10px;
+    text-align: right;
+    position: fixed;
+}
+a:visited {
+    color: #000;
+}
+.bg {
+    background: #6e6e6e none repeat scroll 0 0;
 }
