@@ -6,8 +6,8 @@ require_once 'engine/mysql.php';
 require_once 'engine/reCAPTCHA.php';
 if (isset($_COOKIE['SESSION']) and !empty($_COOKIE['SESSION'])) {
     if (db_session_check($db, $_COOKIE['SESSION'])) {
-        header('Location:index.php');
-        die;
+//        header('Location:index.php');
+//        die;
     }
 }
 //else {
@@ -64,14 +64,14 @@ if (isset($_GET['success']) && $_GET['success']==1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/16.jpg" type="image/jpg">
+    <link rel="shortcut icon" href="/images/16v2.png" type="image/png">
     <link rel="stylesheet" href="/styles/reset.scss" type="text/css">
     <link rel="stylesheet" href="/styles/register.css?v=4" type="text/css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/register.js?v=3"></script>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu|Alegreya+Sans:800&display=swap" rel="stylesheet">
     <?php require_once 'engine/reCAPTCHA_site.php'; ?>
-    <title>Регистрация</title>
+    <title>SH.register</title>
 </head>
 <body class="bg">
 <div class="gigaForm">

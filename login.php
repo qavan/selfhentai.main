@@ -30,14 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/16.jpg" type="image/jpg">
+    <link rel="shortcut icon" href="/images/16v2.png" type="image/png">
     <link rel="stylesheet" href="/styles/reset.scss" type="text/css">
     <link rel="stylesheet" href="/styles/login.css?v=5" type="text/css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto|Roboto+Slab|Rubik&display=swap" rel="stylesheet">
     <?php require_once 'engine/reCAPTCHA_site.php'; ?>
-    <title>Вход</title>
+    <title>SH.login</title>
 </head>
 <body class="bg">
 <div class="gigaForm">
