@@ -14,7 +14,7 @@ form {
 label {
     position: absolute;
     width: 250px;
-    color: #d70000;
+    color: #ff0000;
     top:0;
     left:25px;
     font-family: 'Ubuntu', sans-serif;
@@ -75,7 +75,7 @@ input:not(:placeholder-shown) ~ .filledInput {
     width: 274px;
     height: 35px;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     border: 0.1ch solid #000000;
     border-radius: 1px;
     margin: 0 0 0 0;

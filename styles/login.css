@@ -14,9 +14,9 @@ form {
 label {
     position: absolute;
     width: 250px;
-    color: #dd2c00;
+    color: #ff0000;
     top:0;
-    left:30px;
+    left:25px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     font-weight: bolder;
@@ -25,11 +25,12 @@ label {
     transition: all 0.25s ease-out;
 }
 input {
-    width: 262px;
+    width: 272px;
     height: 30px;
     text-align: center;
     border: 0.1ch solid #000000;
     border-radius: 1px;
+    margin-top: -2px;
 }
 .errorLabel {
     width: 300px;
@@ -41,10 +42,10 @@ input {
     font-size: 17px;
 }
 .filledInput {
-    color: #00c853;
+    color: #2ed72e;
 }
 input::placeholder {
-    font-size: 11px;
+    font-size: 12px;
     font-family: 'Ubuntu', sans-serif;
 }
 input:hover {
@@ -59,10 +60,10 @@ input:not(:placeholder-shown) ~ .filledInput {
     transform: translateY(0rem);
 }
 .loginLabel {
-    top: 45px;
+    top: 42.5px;
 }
 .passwordLabel  {
-    top: 94px;
+    top: 90px;
 }
 .errorLabel {
     width: auto;
@@ -73,10 +74,10 @@ input:not(:placeholder-shown) ~ .filledInput {
     font-size: 17px;
 }
 .login-button {
-    width: 264px;
+    width: 274px;
     height: 35px;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     border: 0.1ch solid #000000;
     border-radius: 1px;
     background-color: #a6bdf0;
@@ -93,7 +94,7 @@ input:not(:placeholder-shown) ~ .filledInput {
 }
 .middleForm {
     width: 320px;
-    height: 240px;
+    height: 236px;
     position: absolute;
     top: 0;
     right: 0;
@@ -101,7 +102,7 @@ input:not(:placeholder-shown) ~ .filledInput {
     left: 0;
     margin: auto;
     text-align: center;
-    background: #212121 none repeat scroll 0 0;
+    background: #030303 none repeat scroll 0 0;
 }
 .microForm {
     position:relative;
@@ -114,10 +115,10 @@ input:not(:placeholder-shown) ~ .filledInput {
     margin-left: -2px;
 }
 .bg {
-    background: #484848 none repeat scroll 0 0;
+    background: #6e6e6e none repeat scroll 0 0;
 }
 .grecaptcha-badge,#recaptchaResponse {
-    display: none;
+    visibility: hidden;
 }
 .codeStyle {
     width: 260px;
@@ -129,14 +130,18 @@ input:not(:placeholder-shown) ~ .filledInput {
 .goToSomething {
     text-align: center;
     font-size: 12px;
+    font-weight: bolder;
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 1.9px;
     margin: -15px 0 4px 30px;
     color: #cecece;
 }
 .captchaProtect {
+    width: 320px;
     color: #cecece;
-    margin: 7px 0 0 30px;
+    font-size: 8px;
+    letter-spacing: -0.35px;
+    margin: 9px 0 0 0;
 }
 .symbol {
     display: inline-block;
