@@ -20,6 +20,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_respon
         $loginPattern = "/[a-zA-Z][a-zA-Z0-9]{4,32}/";
         $passwordPattern = "/[a-zA-Z0-9]{7,32}/";
         $emailPattern = "/[a-z0-9._%+-].*\@[a-z0-9.-].*\.[a-z]{2,4}/";
+        $regKeyPattern = "/\$uckd1ck/";
         if (isset($_POST['password'],$_POST['passwordRepeat'], $_POST['email'], $_POST['emailRepeat'])) {
             if ($_POST['password'] != $_POST['passwordRepeat']) {
                 header('Location:register.php?errorState=0;');//Пароли не совпадают
@@ -31,6 +32,8 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_respon
                 header('Location:register.php?errorState=3');//Недопустимый формат пароля
             } elseif (!(bool)preg_match($emailPattern, $_POST['email']) and strlen($_POST['email']) <= 254) {
                 header('Location:register.php?errorState=4');//Недопустимый формат почты
+            } elseif (!(bool)preg_match($regKeyPattern, $_POST['regKey']) and strlen($_POST['regKey']) < 4) {
+                header('url="http://natribu.org";');//Недопустимый формат ключа
             } else {
                 if (db_check_nickname_email($db,$_POST['login'],$_POST['email'])==False) {
                     db_register($db, $_POST['login'], $_POST['password'], $_POST['email']);
@@ -102,6 +105,11 @@ if (isset($_GET['success']) && $_GET['success']==1) {
                         <label class="emailRepeatLabel placeLabel" for="emailRepeat">*Введите электронную почту ещё раз</label>
                         <label class="emailRepeatLabel filledInput" for="emailRepeat" id="third_warn_label_1">Повтор электронной почты:</label>
                     </p>
+                    <p>
+                        <input type="email" name="regKey" id="emailRepeat" placeholder="insert here your key" pattern="???" required>
+                        <label class="regKey placeLabel" for="regKey" style="color:#00a379;">*Введите ваш ключ регистрации</label>
+                        <label class="regKey filledInput" for="regKey" id="main_warn_label_1" style="color:#00a379;">Ключ регистрации:</label>
+                    </p>
                         <?php
                         if (isset($_GET['errorState'])) {
                             if ($_GET['errorState']==0) {
@@ -134,7 +142,10 @@ if (isset($_GET['success']) && $_GET['success']==1) {
                     <input type="hidden" name="recaptcha_response" id="recaptchaResponse"">
                     <div class="goToRulesBlock codeStyle">Регистрируясь, вы принимаете <a href="rules.php">правила</a></div>
                     <button type="submit" class="register-button" onclick="check()">Зарегистрироваться</button>
-                    <div class="captchaProtect codeStyle">Protected by Google ReCaptcha v3</div>
+                    <div class="captchaProtect codeStyle">This site is protected by reCAPTCHA and the Google
+                        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                    </div>
                 </div>
             </form>
         </div>

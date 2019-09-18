@@ -68,7 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                     <a href="recovery.php" class="a2">восстановить</a>
                 </div>
                 <button type="submit" class="login-button" onclick="check()">Войти</button>
-                <div class="captchaProtect codeStyle"> Protected by Google ReCaptcha v3</div>
+                <div class="captchaProtect codeStyle">This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                    <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                </div>
             </div>
         </form>
     </div>
